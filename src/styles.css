@@ -1,0 +1,47 @@
+/* src/styles.css ou src/styles.scss */
+
+/* Importa a fonte Montserrat do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Definição de variáveis CSS para cores e tamanhos (globais) */
+:root {
+    --bg-color: #1a1a2e; /* Azul marinho escuro para o fundo */
+    --card-bg: #16213e; /* Azul mais escuro para o card de login */
+    --primary-accent: #e94560; /* Vermelho queimado/rosado como cor de destaque principal */
+    --secondary-accent: #ff7f50; /* Laranja coral como cor de destaque secundária */
+    --text-color: #e0e0e0; /* Cinza claro para o texto */
+    --input-bg: #0f172a; /* Quase preto para o fundo dos campos de input */
+    --input-border: #0a0e1b; /* Borda mais escura para os campos de input */
+    --button-hover: #c73750; /* Vermelho mais escuro para o estado hover do botão */
+}
+
+/* Reset básico de CSS e definição da fonte para todo o corpo */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos para o corpo da página (globais) */
+body {
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    background: linear-gradient(135deg, var(--bg-color), #0f3460); /* Gradiente de fundo */
+    overflow: hidden; /* Esconde o overflow para a animação de partículas */
+    position: relative; /* Necessário para posicionar as partículas */
+}
+
+/* Keyframes para as animações (globais) */
+@keyframes float {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.05; }
+    50% { transform: translateY(-20px) translateX(10px) scale(1.05); opacity: 0.1; }
+    100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.05; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

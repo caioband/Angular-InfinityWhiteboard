@@ -1,0 +1,46 @@
+    <!-- seu-componente.component.html -->
+
+    <!-- Contêiner para as partículas de fundo -->
+    <div class="background-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <!-- Contêiner principal do formulário de login -->
+    <div class="login-container">
+        <h2>Entrar</h2>
+        <form (ngSubmit)="login()">
+            <div class="input-group">
+            <input type="text" id="username" name="username" [(ngModel)]="username" placeholder=" " required />
+            <label for="username">Nome de Usuário</label>
+            </div>
+        
+            <div class="input-group">
+            <input type="password" id="password" name="password" [(ngModel)]="password" placeholder=" " required />
+            <label for="password">Senha</label>
+            </div>
+        
+            <div class="forgot-password">
+            <a href="#">Esqueceu a senha?</a>
+            </div>
+        
+            <button type="submit" class="login-button">Login</button>
+            
+            <div class="success-animation" *ngIf="loginSuccess">
+                ✅ Login realizado com sucesso!
+            </div>
+            
+            <div class="error-animation" *ngIf="loginError">
+              ❌ Usuário ou senha incorretos.
+            </div>
+
+            <div class="register-link">
+            Não tem uma conta? <a href="#">Cadastre-se</a>
+            </div>
+        </form>
+    </div>

@@ -1,0 +1,228 @@
+/* seu-componente.component.css ou .scss */
+
+/* Contêiner para as partículas de fundo animadas (dentro do componente) */
+/* O posicionamento absoluto aqui é em relação ao body, que tem position: relative globalmente */
+.background-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    /* Certifique-se de que este div esteja no seu login.component.html */
+}
+
+/* Estilos individuais para cada partícula */
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out alternate; /* Usa o keyframe 'float' definido globalmente */
+}
+
+/* Tamanhos e posições iniciais para cada partícula */
+.particle:nth-child(1) { width: 30px; height: 30px; top: 10%; left: 20%; animation-duration: 18s; }
+.particle:nth-child(2) { width: 50px; height: 50px; top: 70%; left: 80%; animation-duration: 22s; }
+.particle:nth-child(3) { width: 20px; height: 20px; top: 40%; left: 50%; animation-duration: 16s; }
+.particle:nth-child(4) { width: 40px; height: 40px; top: 90%; left: 10%; animation-duration: 20s; }
+.particle:nth-child(5) { width: 60px; height: 60px; top: 20%; left: 90%; animation-duration: 25s; }
+.particle:nth-child(6) { width: 25px; height: 25px; top: 5%; left: 60%; animation-duration: 19s; }
+.particle:nth-child(7) { width: 45px; height: 45px; top: 85%; left: 30%; animation-duration: 23s; }
+.particle:nth-child(8) { width: 35px; height: 35px; top: 60%; left: 5%; animation-duration: 17s; }
+
+/* Contêiner principal do formulário de login */
+.login-container {
+    background-color: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+    width: 100%;
+    max-width: 400px; /* Largura máxima para o card */
+    text-align: center;
+    position: relative;
+    z-index: 10; /* Garante que o card esteja acima das partículas */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+    backdrop-filter: blur(5px); /* Efeito de vidro fosco */
+    animation: fadeIn 1s ease-out; /* Animação de entrada */
+}
+
+/* Título do formulário de login */
+.login-container h2 {
+    color: var(--primary-accent);
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5); /* Sombra no texto do título */
+}
+
+/* Grupo de input (input + label) */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+/* Estilos para a label flutuante */
+.input-group label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: var(--text-color);
+    pointer-events: none; /* Permite clicar através da label */
+    transition: all 0.3s ease; /* Transição suave para a animação */
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+/* Estilos para os campos de input */
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1.1em;
+    outline: none; /* Remove o contorno padrão ao focar */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições para foco */
+}
+
+/* Estilos para o input quando focado */
+.input-group input:focus {
+    border-color: var(--secondary-accent); /* Muda a cor da borda */
+    box-shadow: 0 0 15px rgba(255, 127, 80, 0.4); /* Adiciona uma sombra */
+}
+
+/* Animação da label: move para cima quando o input está focado ou preenchido */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8em;
+    color: var(--secondary-accent);
+    background-color: var(--card-bg); /* Use a variável para o background da label */
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+/* Link "Esqueceu a senha?" */
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease; /* Transição de cor no hover */
+}
+
+.forgot-password a:hover {
+    color: var(--secondary-accent); /* Muda a cor no hover */
+}
+
+/* Botão de login */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent)); /* Gradiente de fundo */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições no hover */
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4); /* Sombra inicial */
+    position: relative;
+    overflow: hidden; /* Esconde o pseudo-elemento antes de animar */
+    z-index: 1;
+}
+
+/* Efeito de brilho no botão ao passar o mouse */
+.login-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Inicia fora da tela */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); /* Gradiente de brilho */
+    transition: 0.5s; /* Transição para o efeito */
+    z-index: -1;
+}
+
+.login-button:hover::before {
+    left: 100%; /* Move o brilho para a direita */
+}
+
+/* Efeitos no botão ao passar o mouse */
+.login-button:hover {
+    transform: translateY(-5px); /* Move ligeiramente para cima */
+    box-shadow: 0 8px 20px rgba(233, 69, 96, 0.6); /* Aumenta a sombra */
+}
+
+/* Link "Não tem uma conta?" */
+.register-link {
+    margin-top: 25px;
+    color: var(--text-color);
+    font-size: 0.9em;
+}
+
+.register-link a {
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transição de cor no hover */
+}
+
+.register-link a:hover {
+    color: var(--secondary-accent); /* Muda a cor no hover */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .login-container {
+        margin: 20px; /* Adiciona margem para não colar nas bordas */
+        padding: 30px 20px;
+    }
+
+    .login-container h2 {
+        font-size: 1.8em; /* Reduz o tamanho do título */
+    }
+}
+
+.success-animation {
+  margin-top: 20px;
+  color: #00ff88;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeSlideIn 0.5s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-animation {
+  margin-top: 20px;
+  color: #ff4d4d;
+  font-weight: bold;
+  text-align: center;
+  animation: shakeFade 0.4s ease-out;
+}
+
+@keyframes shakeFade {
+  0%   { transform: translateX(0);    opacity: 0.8; }
+  25%  { transform: translateX(-5px); }
+  50%  { transform: translateX(5px);  }
+  75%  { transform: translateX(-5px); }
+  100% { transform: translateX(0);    opacity: 1; }
+}
