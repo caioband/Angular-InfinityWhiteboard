@@ -18,13 +18,13 @@ export class LoginComponent {
   loginSuccess = false;
   loginError = false;
   clickedLogin = false;
-
+  clickedTs = Date.now()
+  
   constructor(private router: Router){}
 
   // login puramente ficticio :P
   login(){
     this.clickedLogin = true;
-    var clickedTs = Date.now()
 
     if (this.username == "caioba" && this.password == "12345") {
       this.loginSuccess = true;
@@ -37,14 +37,16 @@ export class LoginComponent {
       this.loginError = true;
       this.loginSuccess = false;
 
-      console.log(Date.now() - clickedTs)
-        
-      setTimeout(() => {
+      console.log(Date.now() - this.clickedTs)
 
-        if (Date.now() - clickedTs >= 2){
+      setTimeout(() => {
+        if (Date.now() - this.clickedTs > 200){
           this.loginError = false;
+        }else{
+          return
         }
       }, 3000);
+      this.clickedTs = Date.now()
     }
   }
 }
