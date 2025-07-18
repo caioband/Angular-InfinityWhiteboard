@@ -36,8 +36,8 @@ Senha: 12345
 
 ```bash
 # Clone o repositório
-git clone https://github.com/caioband/Angular-ToDo-List.git
-cd Angular-ToDo-List
+git clone https://github.com/caioband/Angular-InfinityWhiteboard.git
+cd Angular-InfinityWhiteboard
 
 # Instale as dependências
 npm install
