@@ -32,6 +32,9 @@ Senha: 12345
 - Sistema de cache para salvar o desenho ao recarregar a página
 - Suporte de colaboração em tempo real usando WebSocket (após integração com backend)
 
+![Demo](./assets/demo.gif)
+
+
 ## 🚀 Como rodar
 
 ```bash
